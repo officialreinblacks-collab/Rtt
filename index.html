@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reinblacks Creativz — Premium Creative Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://img.youtube.com" crossorigin>
 <link rel="dns-prefetch" href="https://img.youtube.com">
     <style>
@@ -39,8 +39,6 @@
         #intro-brand {
             position:relative; z-index:1; font-size:clamp(2rem,5.5vw,3.8rem);
             font-weight:900; letter-spacing:0.04em; color:#fff; text-align:center;
-            filter:blur(6px); transform:scale(0.92); opacity:0;
-            animation:introReveal 2.2s cubic-bezier(0.22,0.05,0.18,1) forwards;
             text-shadow:0 0 50px var(--accent-glow), 0 0 100px rgba(229,9,20,0.15);
         }
         #intro-subtle-line {
@@ -58,6 +56,10 @@
         @keyframes introLineGrow { 0%{ width:0; opacity:0; } 55%{ width:0; opacity:0; } 75%{ width:70px; opacity:0.8; } 100%{ width:90px; opacity:0.6; } }
         @keyframes fadeInUp {
     from { opacity:0; transform:translateY(10px); }
+    to { opacity:1; transform:translateY(0); }
+        }
+        @keyframes letterFadeIn {
+    from { opacity:0; transform:translateY(8px); }
     to { opacity:1; transform:translateY(0); }
         }
         
@@ -201,7 +203,7 @@
         .addon-price { color:#ccc; font-weight:500; }
         .bottom-note { text-align:center; font-size:12.5px; color:#444; font-weight:300; margin-top:20px; }
 
-        /* ─────────────── TESTIMONIALS ─────────────── */
+            /* ─────────────── TESTIMONIALS ─────────────── */
         #section-testimonials { background:#060606; padding:60px 0 70px; position:relative; overflow:hidden; font-family:'DM Sans',sans-serif; scroll-margin-top:110px; content-visibility:auto; contain-intrinsic-size:500px; }
         #section-testimonials::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--red),transparent); }
         #section-testimonials::after { content:'"'; font-family:'Bebas Neue',sans-serif; font-size:400px; color:rgba(229,9,20,0.03); position:absolute; top:-60px; left:-30px; line-height:1; pointer-events:none; user-select:none; }
@@ -270,24 +272,36 @@
         .submit-btn { padding:12px; background:var(--red); color:#fff; border:none; border-radius:24px; font-weight:700; font-size:0.95rem; cursor:pointer; letter-spacing:0.04em; transition:all 0.3s; box-shadow:0 0 18px var(--accent-glow); }
         .submit-btn:hover { background:#ff1a25; }
         .submit-btn:disabled { opacity:0.6; pointer-events:none; }
-
-        /* ─────────────── EXPANDED CARD PLAYER ─────────────── */
-        .card-player-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:9400; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.35s ease; }
+  
+  /* ─────────────── EXPANDED CARD PLAYER ─────────────── */
+        .card-player-overlay { position:fixed; inset:0; background:rgba(15,15,15,0.55); backdrop-filter:blur(28px) saturate(1.4); -webkit-backdrop-filter:blur(28px) saturate(1.4); z-index:9400; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.35s ease; }
         .card-player-overlay.active { opacity:1; pointer-events:all; }
-        .card-player-container { position:relative; width:95vw; max-width:1000px; background:#000; border-radius:12px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.8); animation:cardExpand 0.35s ease-out forwards; }
-        @keyframes cardExpand { 0%{ transform:scale(0.4); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
+        .card-player-container { position:relative; width:95vw; max-width:960px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:14px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08); animation:cardExpand 0.3s ease-out forwards; }
+        @keyframes cardExpand { 0%{ transform:scale(0.88); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
         .card-player-container iframe { width:100%; aspect-ratio:16/9; border:none; display:block; }
-        .card-player-close { position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.65); border:none; color:#fff; width:38px; height:38px; border-radius:50%; font-size:1.2rem; cursor:pointer; z-index:5; display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
-        .card-player-close:hover { background:var(--red); }
+        .card-player-close { position:absolute; top:12px; right:12px; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); color:#fff; width:38px; height:38px; border-radius:50%; font-size:1.1rem; cursor:pointer; z-index:5; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
+        .card-player-close:hover { background:var(--red); border-color:var(--red); }
 
         /* ─────────────── MODALS ─────────────── */
-        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9600; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+        .modal-overlay { position:fixed; inset:0; background:rgba(15,15,15,0.55); backdrop-filter:blur(28px) saturate(1.4); -webkit-backdrop-filter:blur(28px) saturate(1.4); z-index:9600; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; }
         .modal-overlay.active { opacity:1; pointer-events:all; }
-        .modal-close { position:absolute; top:60px; right:24px; background:rgba(0,0,0,0.6); border:none; color:#fff; font-size:1.5rem; cursor:pointer; z-index:10; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+        .modal-close { position:absolute; top:60px; right:24px; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1.2rem; cursor:pointer; z-index:10; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
         #video-modal .video-full-wrap { width:100vw; height:100vh; background:#000; }
         #video-modal .video-full-wrap iframe { width:100%; height:100%; border:none; }
-        #gallery-modal .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px; padding:30px; max-width:1100px; width:100%; max-height:85vh; overflow-y:auto; background:rgba(18,18,18,0.85); border-radius:14px; border:1px solid rgba(255,255,255,0.1); }
+        #gallery-modal .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px; padding:30px; max-width:1100px; width:100%; max-height:85vh; overflow-y:auto; background:rgba(255,255,255,0.06); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:14px; border:1px solid rgba(255,255,255,0.12); }
         #gallery-modal .gallery-grid img { width:100%; border-radius:6px; cursor:pointer; transition:transform 0.25s; object-fit:cover; aspect-ratio:1/1; }
+
+        /* ─────────────── SHORTS MODAL ─────────────── */
+        #shorts-modal { position:fixed; inset:0; background:rgba(15,15,15,0.55); backdrop-filter:blur(28px) saturate(1.4); -webkit-backdrop-filter:blur(28px) saturate(1.4); z-index:9700; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+        #shorts-modal.active { opacity:1; pointer-events:all; }
+        #shorts-modal-close { position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1.1rem; cursor:pointer; z-index:10; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
+        #shorts-modal-close:hover { background:var(--red); border-color:var(--red); }
+        .shorts-phone-frame { position:relative; height:100vh; width:calc(100vh * 9 / 16); max-width:100vw; background:#000; overflow:hidden; animation:shortsPopIn 0.3s cubic-bezier(0.22,0.05,0.18,1) forwards; }
+        @media (max-aspect-ratio: 9/16) { .shorts-phone-frame { width:100vw; height:calc(100vw * 16 / 9); max-height:100vh; } }
+        @keyframes shortsPopIn { 0%{ transform:scale(0.92); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
+        .shorts-phone-frame iframe { width:100%; height:100%; border:none; display:block; }
+        .shorts-label { position:absolute; top:14px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); backdrop-filter:blur(6px); color:#fff; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:4px 12px; border-radius:10px; pointer-events:none; white-space:nowrap; display:flex; align-items:center; gap:5px; border:1px solid rgba(255,255,255,0.1); }
+        .shorts-label i { color:var(--red); font-size:0.7rem; }
         #gallery-modal .gallery-grid img:hover { transform:scale(1.04); box-shadow:0 0 18px var(--accent-glow); }
         #image-fullscreen { position:fixed; inset:0; background:#000; z-index:9700; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; }
         #image-fullscreen.active { opacity:1; pointer-events:all; }
@@ -351,6 +365,13 @@
 .waiting-label{color:#fff;font-size:0.72rem;font-weight:600;}
 .notify-btn-film{width:100%;padding:10px;background:#1877F2;border:none;color:#fff;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;cursor:pointer;transition:background 0.4s;display:flex;align-items:center;justify-content:center;gap:6px;}
 .notify-btn-film.notified{background:#FF6B00;}
+        .season-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.75);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,0.2);}
+.episode-synopsis{color:#999;font-size:0.78rem;line-height:1.5;margin-bottom:10px;margin-top:4px;}
+.release-date{color:var(--red);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-bottom:10px;display:flex;align-items:center;gap:5px;}
+.runtime-badge{color:#666;font-size:0.72rem;margin-bottom:8px;display:flex;align-items:center;gap:4px;}
+.trailer-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:4px;cursor:pointer;margin-left:8px;transition:all 0.3s;}
+.trailer-btn:hover{background:rgba(255,255,255,0.15);}
+.film-buttons{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:10px;}
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9726901346687165"
      crossorigin="anonymous">
@@ -399,8 +420,7 @@
             <a href="#section-intros" data-nav="intros">Intro Videos</a>
             <a href="#section-mini-films" data-nav="mini-films">Mini Films</a>
         </div>
-
-        <div id="category-bar">
+<div id="category-bar">
             <button class="cat-btn" data-scroll="section-mini-films">Mini Films</button>
             <button class="cat-btn active-cat" data-scroll="section-intros">Intro Videos</button>
             <button class="cat-btn" data-scroll="section-ads">AI Ads</button>
@@ -432,44 +452,54 @@
         <div class="category-row" id="row-mini-films">
 
             <!-- Episode 01 -->
-            <div class="film-item">
-                <div class="poster-card wide">
-                    <img src="https://res.cloudinary.com/datfuxotx/image/upload/v1780826300/44f19ab0-6256-11f1-85e8-890799e683b2_unv1vp.png" alt="Sweet Monster Episode 01" loading="lazy" decoding="async">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <div class="cs-overlay"><i class="fas fa-lock"></i></div>
-                    <div class="poster-overlay">SWEET MONSTER — Ep. 01</div>
-                </div>
-                <div class="film-meta">
-                    <div class="waiting-pill">
-                        <span class="live-dot"></span>
-                        <span class="waiting-count-num" data-target="10111">0</span>
-                        <span class="waiting-label">people waiting to watch</span>
-                    </div>
-                    <button class="notify-btn-film" onclick="requestNotify(this)">
-                        <i class="fas fa-bell"></i> Get Notified
-                    </button>
-                </div>
-            </div>
+<div class="film-item">
+    <div class="poster-card wide">
+        <img src="https://res.cloudinary.com/datfuxotx/image/upload/v1780826300/44f19ab0-6256-11f1-85e8-890799e683b2_unv1vp.png" alt="Sweet Monster Episode 01" loading="lazy" decoding="async">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="season-badge">Season 01</div>
+        <div class="cs-overlay"><i class="fas fa-lock"></i></div>
+        <div class="poster-overlay">SWEET MONSTER — Ep. 01</div>
+    </div>
+    <div class="film-meta">
+        <p class="episode-synopsis">The beginning of lies, friendship and work.</p>
+        <p class="runtime-badge"><i class="fas fa-clock"></i> 5 min</p>
+        <p class="release-date"><i class="fas fa-calendar"></i> Coming August 5th</p>
+        <div class="waiting-pill">
+            <span class="live-dot"></span>
+            <span class="waiting-count-num" data-target="1500">0</span>
+            <span class="waiting-label">people waiting to watch</span>
+        </div>
+        <div class="film-buttons">
+            <button class="notify-btn-film" onclick="requestNotify(this)"><i class="fas fa-bell"></i> Get Notified</button>
+            <button class="trailer-btn" disabled><i class="fas fa-film"></i> Trailer Soon</button>
+        </div>
+    </div>
+</div>
 
-            <!-- Episode 02 -->
-            <div class="film-item">
-                <div class="poster-card wide">
-                    <img src="https://res.cloudinary.com/datfuxotx/image/upload/v1780826291/206087f0-6257-11f1-85e8-890799e683b2_p9blnz.webp" alt="Sweet Monster Episode 02" loading="lazy" decoding="async">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <div class="cs-overlay"><i class="fas fa-lock"></i></div>
-                    <div class="poster-overlay">SWEET MONSTER — Ep. 02</div>
-                </div>
-                <div class="film-meta">
-                    <div class="waiting-pill">
-                        <span class="live-dot"></span>
-                        <span class="waiting-count-num" data-target="949">0</span>
-                        <span class="waiting-label">people waiting to watch</span>
-                    </div>
-                    <button class="notify-btn-film" onclick="requestNotify(this)">
-                        <i class="fas fa-bell"></i> Get Notified
-                    </button>
-                </div>
-            </div>
+<!-- Episode 02 -->
+<div class="film-item">
+    <div class="poster-card wide">
+        <img src="https://res.cloudinary.com/datfuxotx/image/upload/v1780826291/206087f0-6257-11f1-85e8-890799e683b2_p9blnz.webp" alt="Sweet Monster Episode 02" loading="lazy" decoding="async">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="season-badge">Season 01</div>
+        <div class="cs-overlay"><i class="fas fa-lock"></i></div>
+        <div class="poster-overlay">SWEET MONSTER — Ep. 02</div>
+    </div>
+    <div class="film-meta">
+        <p class="episode-synopsis">Sandra getting herself in love with Pablo, his best friend's boyfriend.</p>
+        <p class="runtime-badge"><i class="fas fa-clock"></i> 5 min</p>
+        <p class="release-date"><i class="fas fa-calendar"></i> Coming November 5th</p>
+        <div class="waiting-pill">
+            <span class="live-dot"></span>
+            <span class="waiting-count-num" data-target="949">0</span>
+            <span class="waiting-label">people waiting to watch</span>
+        </div>
+        <div class="film-buttons">
+            <button class="notify-btn-film" onclick="requestNotify(this)"><i class="fas fa-bell"></i> Get Notified</button>
+            <button class="trailer-btn" disabled><i class="fas fa-film"></i> Trailer Soon</button>
+        </div>
+    </div>
+</div>
 
         </div>
         <button class="slider-arrow right" data-target="row-mini-films"><i class="fas fa-chevron-right"></i></button>
@@ -539,8 +569,8 @@
                 <div class="poster-card tall" data-gallery="branding"><img src="https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688667/1778656761326_dlquo0.jpg" alt="Branding" loading="lazy" decoding="async" width="170" height="255"><div class="poster-overlay">Branding</div></div>
             </div>
         </section>
-      
-      <!-- PRICING -->
+        
+        <!-- PRICING -->
         <section id="section-pricing" class="fade-up-section">
             <div class="pricing-service-section">
                 <p class="service-label">AI Music Visualizers</p>
@@ -640,7 +670,7 @@
                         <input type="hidden" name="subject" value="New Application from Reinblacks Creativz">
                         <input type="hidden" name="redirect" value="false">
                         <input type="hidden" name="pricing_package" id="pricing-package" value="">
-                        <input type="text" name="name" placeholder="Your Name" required>
+          <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <select name="service" required>
                             <option value="">Select Service</option>
@@ -660,11 +690,7 @@
    <section class="content-section fade-up-section" id="find-us">
             <div class="section-header"><span class="red-accent"></span> Find us Via</div>
             <div class="social-links">
-                <a href="https://wa.me/254794299237" target="_blank" rel="noopener" class="social-btn" style="background:#25D366;border-color:#25D366;"><i class="fab fa-whatsapp"></i> WhatsApp +254 7942 99237</a>
-                <a href="https://www.upwork.com/freelancers/~01db27abd06c318e20" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-upwork"></i> Upwork</a>
-                <a href="https://www.instagram.com/reinblacks_music?igsh=YmdwaXZ1MHAydjlj" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://www.facebook.com/share/18ZF3Sapc1/" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="https://www.tiktok.com/@reinblacks_music?_r=1&_t=ZS-96RaDIzg9QX" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                
             </div>
         </section>
 
@@ -679,13 +705,17 @@
             <p>📍 Africa · Kenya · Nairobi</p>
             <div style="margin:10px 0;display:flex;gap:12px;justify-content:center;">
                 <a href="https://youtube.com/@reinblacks_music" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/reinblacks_music" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@reinblacks_music" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/reinblacks_creativz?igsh=YmdwaXZ1MHAydjlj" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1BWozVvqou/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@reinblacks_creativz?_r=1&_t=ZS-974EgNyrXaX" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
             </div>
-            <p>© 2025 Reinblacks Creativz. All rights reserved.</p>
+            <div style="margin:14px 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://www.instagram.com/reinblacks_creativz?igsh=YmdwaXZ1MHAydjlj" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;border-radius:24px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;box-shadow:0 0 14px rgba(253,29,29,0.35);transition:opacity 0.3s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><i class="fab fa-instagram"></i> Click &amp; Follow</a>
+                <a href="https://www.facebook.com/share/1BWozVvqou/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#1877F2;color:#fff;border-radius:24px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;box-shadow:0 0 14px rgba(24,119,242,0.35);transition:opacity 0.3s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"><i class="fab fa-facebook-f"></i> Click &amp; Follow</a>
+                <a href="https://www.tiktok.com/@reinblacks_creativz?_r=1&_t=ZS-974EgNyrXaX" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#010101;color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:24px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;box-shadow:0 0 14px rgba(255,255,255,0.08);transition:opacity 0.3s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'"><i class="fab fa-tiktok"></i> Click &amp; Follow</a>
+            </div>
         </footer>
-    </div>
-  
+
   <!-- EXPANDED CARD PLAYER -->
     <div class="card-player-overlay" id="card-player-overlay">
         <div class="card-player-container" id="card-player-container">
@@ -696,6 +726,16 @@
 
       <!-- FULL SCREEN MODAL -->
     <div class="modal-overlay" id="video-modal"><button class="modal-close" id="video-modal-close">✕</button><div class="video-full-wrap" id="video-modal-content"></div></div>
+
+    <!-- SHORTS MODAL -->
+    <div id="shorts-modal">
+        <button id="shorts-modal-close">✕</button>
+        <div class="shorts-phone-frame">
+            <div class="shorts-label"><i class="fab fa-youtube"></i> YouTube Short</div>
+            <div id="shorts-modal-content"></div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="gallery-modal"><button class="modal-close" id="gallery-modal-close">✕</button><div class="gallery-grid" id="gallery-grid-content"></div></div>
     <div id="image-fullscreen"><button class="modal-close" id="image-fullscreen-close">✕</button><img src="" alt="Fullscreen" id="image-fullscreen-img"></div>
 
@@ -734,8 +774,8 @@
                 posters: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687890/3e207a10-4ebc-11f1-8671-0d0c60b1ec57_hosa8u.png','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687901/02f54ce0-4edf-11f1-b7e2-7d1a1e38f683_wkdbjm.png'],
                 branding: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688512/1778656906608_q7ekkl.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657055403_tp7ftu.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657206860_h45vo6.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688666/1778656989394_ddflck.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688510/1778657276427_fswuhy.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657145970_cvp8wc.jpg']
             };
-
-                      const introOverlay = document.getElementById('intro-overlay');
+    
+    const introOverlay = document.getElementById('intro-overlay');
             const mainSite = document.getElementById('main-site');
             function completeIntro() { introOverlay.classList.add('fade-out'); mainSite.classList.add('visible'); setTimeout(() => { if (introOverlay.parentNode) introOverlay.style.display = 'none'; }, 600); }
             setTimeout(completeIntro, 2600);
@@ -765,6 +805,9 @@ const topNav = document.getElementById('top-nav');
             const cardPlayerOverlay = document.getElementById('card-player-overlay');
             const cardPlayerContent = document.getElementById('card-player-content');
             const cardPlayerClose = document.getElementById('card-player-close');
+            const shortsModal = document.getElementById('shorts-modal');
+            const shortsModalContent = document.getElementById('shorts-modal-content');
+            const shortsModalClose = document.getElementById('shorts-modal-close');
             let currentPlayerVideoId = null;
           const pricingPackageInput = document.getElementById('pricing-package');
     
@@ -790,7 +833,7 @@ const topNav = document.getElementById('top-nav');
             document.querySelectorAll('.slider-container').forEach(container => { const row = container.querySelector('.category-row'); if (!row) return; const hint = document.createElement('div'); hint.className = 'swipe-hint'; hint.innerHTML = '<i class="fas fa-chevron-right"></i>'; container.appendChild(hint); function hideHint() { hint.classList.add('hidden'); } row.addEventListener('scroll', function() { const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 10; if (atEnd) hint.classList.add('hidden'); else hint.classList.remove('hidden'); }, { passive: true }); row.addEventListener('touchstart', hideHint, { once: true }); row.addEventListener('wheel', hideHint, { once: true }); });
           
                       allCatBtns.forEach(btn => { btn.addEventListener('click', function() { const target = document.getElementById(this.getAttribute('data-scroll')); if (target) target.scrollIntoView({ behavior: 'smooth' }); allCatBtns.forEach(b => b.classList.remove('active-cat')); this.classList.add('active-cat'); }); });
-            function updateActiveCatBtn() { let activeIdx = null; const scrollPos = window.scrollY + 160; const map = ['section-intros','section-visualizers','section-ads','section-photos','section-graphics','section-pricing','section-faq','contact-section']; map.forEach((id, i) => { const el = document.getElementById(id); if (el && el.offsetTop <= scrollPos) activeIdx = i; }); if (activeIdx !== null) allCatBtns.forEach((b,i) => b.classList.toggle('active-cat', i === activeIdx)); }
+            function updateActiveCatBtn() { let activeIdx = null; const scrollPos = window.scrollY + 160; const map = ['section-intros','section-mini-films','section-visualizers','section-ads','section-photos','section-graphics','section-pricing','section-faq','contact-section']; map.forEach((id, i) => { const el = document.getElementById(id); if (el && el.offsetTop <= scrollPos) activeIdx = i; }); if (activeIdx !== null) allCatBtns.forEach((b,i) => b.classList.toggle('active-cat', i === activeIdx)); }
             window.addEventListener('scroll', updateActiveCatBtn, { passive: true });
 
             document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', function() { const item = this.closest('.faq-item'); const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open')); if (!isOpen) item.classList.add('open'); }); });
@@ -801,6 +844,10 @@ const topNav = document.getElementById('top-nav');
             function closeCardPlayer() { cardPlayerOverlay.classList.remove('active'); cardPlayerContent.innerHTML = ''; document.body.style.overflow = ''; currentPlayerVideoId = null; }
             cardPlayerClose.addEventListener('click', closeCardPlayer);
             cardPlayerOverlay.addEventListener('click', e => { if (e.target === cardPlayerOverlay) closeCardPlayer(); });
+            function openShortsModal(videoId) { shortsModalContent.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&loop=1&playlist=${videoId}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`; shortsModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+            function closeShortsModal() { shortsModal.classList.remove('active'); shortsModalContent.innerHTML = ''; document.body.style.overflow = ''; }
+            shortsModalClose.addEventListener('click', closeShortsModal);
+            shortsModal.addEventListener('click', e => { if (e.target === shortsModal) closeShortsModal(); });
             function openVideoModal(videoId) { videoModalContent.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&enablejsapi=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`; videoModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
             function closeVideoModal() { videoModal.classList.remove('active'); videoModalContent.innerHTML = ''; document.body.style.overflow = ''; }
             videoModalClose.addEventListener('click', closeVideoModal);
@@ -819,7 +866,8 @@ const topNav = document.getElementById('top-nav');
                 galleryGridContent.innerHTML = '';
                 document.body.style.overflow = '';
                 currentGalleryKey = null;
-            }
+                
+                }
             galleryModalClose.addEventListener('click', closeGalleryModal);
             galleryModal.addEventListener('click', e => { if (e.target === galleryModal) closeGalleryModal(); });
             galleryGridContent.addEventListener('click', e => {
@@ -836,7 +884,9 @@ const topNav = document.getElementById('top-nav');
                 if (!card) return;
                 const videoId = card.getAttribute('data-video');
                 const galleryKey = card.getAttribute('data-gallery');
-                if (videoId) openCardPlayer(videoId);
+                const isShort = card.getAttribute('data-short') === 'true';
+                if (videoId && isShort) openShortsModal(videoId);
+                else if (videoId) openCardPlayer(videoId);
                 else if (galleryKey && galleries[galleryKey]) openGalleryModal(galleryKey);
             });
     
@@ -863,7 +913,7 @@ const topNav = document.getElementById('top-nav');
                 }
             }
                       floatingChatBtn.addEventListener('click', openChat);
-            agentChatBtn.addEventListener('click', openChat);
+            agentChatBtn?.addEventListener('click', openChat);
 
             const contactForm = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
@@ -881,7 +931,7 @@ const topNav = document.getElementById('top-nav');
                 } catch (error) { btnText.textContent = 'Error — Try Again'; submitBtn.disabled = false; setTimeout(() => { btnText.textContent = original; }, 2500); }
             });
 
-            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { if (imageFullscreen.classList.contains('active')) closeImageFullscreen(); else if (galleryModal.classList.contains('active')) closeGalleryModal(); else if (videoModal.classList.contains('active')) closeVideoModal(); else if (cardPlayerOverlay.classList.contains('active')) closeCardPlayer(); else if (hamburgerPanel.classList.contains('active')) closeHamburger(); } if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement !== navSearch)) { e.preventDefault(); navSearch.focus(); } });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { if (imageFullscreen.classList.contains('active')) closeImageFullscreen(); else if (shortsModal.classList.contains('active')) closeShortsModal(); else if (galleryModal.classList.contains('active')) closeGalleryModal(); else if (videoModal.classList.contains('active')) closeVideoModal(); else if (cardPlayerOverlay.classList.contains('active')) closeCardPlayer(); else if (hamburgerPanel.classList.contains('active')) closeHamburger(); } if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement !== navSearch)) { e.preventDefault(); navSearch.focus(); } });
 
             backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
             document.getElementById('bottom-home').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -920,12 +970,12 @@ document.querySelectorAll('.poster-card img').forEach(img => {
             const el = entry.target;
             const target = parseInt(el.dataset.target);
             let count = 0;
-            const step = Math.ceil(target / 60);
-            const timer = setInterval(() => {
-                count += step;
-                if(count >= target){ count = target; clearInterval(timer); }
-                el.textContent = count.toLocaleString();
-            }, 20);
+            const step = Math.ceil(target / 30);
+const timer = setInterval(() => {
+    count += step;
+    if(count >= target){ count = target; clearInterval(timer); }
+    el.textContent = count.toLocaleString();
+}, 12);
             countObserver.unobserve(el);
         }
     });
@@ -939,7 +989,17 @@ function requestNotify(btn) {
         btn.classList.add('notified');
         return;
     }
-    Notification.requestPermission().then(permission => {
+    if (Notification.permission === 'granted') {
+        btn.classList.add('notified');
+        btn.innerHTML = '<i class="fas fa-check"></i> Already Notified!';
+        new Notification('Reinblacks Mini Films', {
+            body: "You'll be notified when the episode drops!",
+            icon: 'https://res.cloudinary.com/datfuxotx/image/upload/v1780826300/44f19ab0-6256-11f1-85e8-890799e683b2_unv1vp.png'
+        });
+        return;
+    }
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Requesting...';
+    Notification.requestPermission(function(permission) {
         btn.classList.add('notified');
         if (permission === 'granted') {
             btn.innerHTML = '<i class="fas fa-check"></i> Notified!';
@@ -949,6 +1009,7 @@ function requestNotify(btn) {
             });
         } else {
             btn.innerHTML = '<i class="fas fa-bell-slash"></i> Blocked';
+            btn.style.background = '#555';
         }
     });
 }
@@ -959,10 +1020,12 @@ setTimeout(() => {
         introBrand.innerHTML = text.split('').map((char, i) =>
             char === ' '
             ? '<span style="display:inline-block;width:0.3em;">&nbsp;</span>'
-            : `<span style="animation:letterFadeIn 0.08s ease ${0.3 + i * 0.08}s forwards">${char}</span>`
+            : `<span style="display:inline-block;opacity:0;animation:letterFadeIn 0.08s ease ${0.3 + i * 0.08}s forwards">${char}</span>`
         ).join('');
     }
 }, 100);
     </script>
 </body>
 </html>    
+
+
