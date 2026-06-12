@@ -203,7 +203,7 @@
         .addon-price { color:#ccc; font-weight:500; }
         .bottom-note { text-align:center; font-size:12.5px; color:#444; font-weight:300; margin-top:20px; }
 
-            /* ─────────────── TESTIMONIALS ─────────────── */
+          /* ─────────────── TESTIMONIALS ─────────────── */
         #section-testimonials { background:#060606; padding:60px 0 70px; position:relative; overflow:hidden; font-family:'DM Sans',sans-serif; scroll-margin-top:110px; content-visibility:auto; contain-intrinsic-size:500px; }
         #section-testimonials::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--red),transparent); }
         #section-testimonials::after { content:'"'; font-family:'Bebas Neue',sans-serif; font-size:400px; color:rgba(229,9,20,0.03); position:absolute; top:-60px; left:-30px; line-height:1; pointer-events:none; user-select:none; }
@@ -431,7 +431,7 @@
             <button class="cat-btn" data-scroll="contact-section">Apply Now</button>
         </div>
 
-        <section id="hero">
+      <section id="hero">
             <div class="hero-video-wrap">
                 <img src="https://res.cloudinary.com/datfuxotx/image/upload/w_1500,c_limit,q_auto,f_auto/v1779427174/710d9ce0-559d-11f1-8075-a726d8a81aeb_wom7ks.png" alt="Reinblacks Hero" class="hero-bg-image" decoding="async">
             </div>
@@ -452,26 +452,34 @@
         <div class="category-row" id="row-mini-films">
 
             <!-- Episode 01 -->
-<div class="film-item">
-    <div class="poster-card wide">
-        <img src="https://res.cloudinary.com/datfuxotx/image/upload/v1780826300/44f19ab0-6256-11f1-85e8-890799e683b2_unv1vp.png" alt="Sweet Monster Episode 01" loading="lazy" decoding="async">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <div class="season-badge">Season 01</div>
-        <div class="cs-overlay"><i class="fas fa-lock"></i></div>
-        <div class="poster-overlay">SWEET MONSTER — Ep. 01</div>
+<div class="film-item" id="sweet-monster-ep1">
+    <div class="video-container" id="sm-ep1-player" style="width:100%;max-width:400px;aspect-ratio:16/9;margin:auto;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;" onclick="playSmEp1(this)">
+        <img src="https://img.youtube.com/vi/sIcTXVVZh_o/hqdefault.jpg" alt="Sweet Monster Episode 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="play-icon-center"><i class="fas fa-play-circle"></i></div>
     </div>
     <div class="film-meta">
-        <p class="episode-synopsis">The beginning of lies, friendship and work.</p>
-        <p class="runtime-badge"><i class="fas fa-clock"></i> 5 min</p>
-        <p class="release-date"><i class="fas fa-calendar"></i> Coming August 5th</p>
-        <div class="waiting-pill">
-            <span class="live-dot"></span>
-            <span class="waiting-count-num" data-target="1500">0</span>
-            <span class="waiting-label">people waiting to watch</span>
+        <div style="display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap;">
+            <div style="background:#c0392b;color:#fff;border-radius:8px;padding:5px 10px;text-align:center;line-height:1.2;">
+                <div style="font-weight:700;font-size:0.85rem;">66</div>
+                <div style="font-size:0.65rem;opacity:0.85;">Likes</div>
+            </div>
+            <div style="background:#2980b9;color:#fff;border-radius:8px;padding:5px 10px;text-align:center;line-height:1.2;display:flex;align-items:center;gap:5px;">
+                <span class="live-dot"></span>
+                <div>
+                    <div style="font-weight:700;font-size:0.85rem;">2K</div>
+                    <div style="font-size:0.65rem;opacity:0.85;">Views</div>
+                </div>
+            </div>
+            <div style="background:#1e1e1e;color:#fff;border-radius:8px;padding:5px 10px;text-align:center;line-height:1.2;">
+                <div style="font-weight:700;font-size:0.85rem;">June 12</div>
+                <div style="font-size:0.65rem;opacity:0.85;">2026</div>
+            </div>
         </div>
+        <h3 style="color:#fff;margin:10px 0 4px;">Sweet Monster — Episode #01</h3>
+        <p class="runtime-badge"><i class="fas fa-film"></i> 4K Quality</p>
+        <p class="episode-synopsis">Mollary's boyfriend has had enough of being bossed around — in front of friends, behind closed doors, always on Mollary's terms. Tired of playing along, he starts looking elsewhere for the loyalty he isn't getting at home. A quiet decision that's about to change everything.</p>
         <div class="film-buttons">
-            <button class="notify-btn-film" onclick="requestNotify(this)"><i class="fas fa-bell"></i> Get Notified</button>
-            <button class="trailer-btn" disabled><i class="fas fa-film"></i> Trailer Soon</button>
+            <button class="notify-btn-film" onclick="shareEpisode(this, 'sweet-monster-ep1', 'Sweet Monster — Episode #01')"><i class="fas fa-share-alt"></i> Share</button>
         </div>
     </div>
 </div>
@@ -774,6 +782,20 @@
                 posters: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687890/3e207a10-4ebc-11f1-8671-0d0c60b1ec57_hosa8u.png','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687901/02f54ce0-4edf-11f1-b7e2-7d1a1e38f683_wkdbjm.png'],
                 branding: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688512/1778656906608_q7ekkl.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657055403_tp7ftu.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657206860_h45vo6.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688666/1778656989394_ddflck.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688510/1778657276427_fswuhy.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657145970_cvp8wc.jpg']
             };
+        
+                        }
+                };
+                document.body.appendChild(s);
+            }
+            setTimeout(loadTidio, 3100); // loads 3.1s after page start
+
+            const galleries = {
+                cloning: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666613/InCollage_20260513_121924997_tp86ie.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666611/InCollage_20260513_125608805_wiv4cr.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666655/InCollage_20260513_124510812_nlzdfz.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666631/InCollage_20260513_122126172_fswgee.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666672/InCollage_20260513_123021610_yegew8.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666681/InCollage_20260513_122923395_tabaye.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666604/InCollage_20260513_125742367_qq6jve.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666607/InCollage_20260513_122756844_w7xzeg.jpg'],
+                editing: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666590/InCollage_20260513_124719161_ksw2kt.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666587/InCollage_20260513_124952807_prs7y9.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666586/InCollage_20260513_125310559_d2ncgy.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666601/InCollage_20260513_125222266_ps9ns0.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666603/InCollage_20260513_123901457_pjncvz.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666603/InCollage_20260513_123322422_k064go.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666608/InCollage_20260513_122415667_dhvmfc.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666604/InCollage_20260513_125742367_qq6jve.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666593/InCollage_20260513_124826854_mr1uqt.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666593/InCollage_20260513_124609559_vj0ns8.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666597/InCollage_20260513_124255345_ah7oej.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666586/InCollage_20260513_125310559_d2ncgy.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666584/InCollage_20260513_125034406_tnoth1.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778666591/InCollage_20260513_125512053_vkoytx.jpg'],
+                logos: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778656537/1778654790796_e6wgiy.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778656537/1778655130025_neq7gu.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778656538/1778655941235_fhbadb.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778656538/1778655309934_q5h3sl.jpg'],
+                posters: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687890/3e207a10-4ebc-11f1-8671-0d0c60b1ec57_hosa8u.png','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778687901/02f54ce0-4edf-11f1-b7e2-7d1a1e38f683_wkdbjm.png'],
+                branding: ['https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688512/1778656906608_q7ekkl.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657055403_tp7ftu.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657206860_h45vo6.jpg','https://res.cloudinary.com/datfuxotx/image/upload/v1778688666/1778656989394_ddflck.jpg','https://res.cloudinary.com/datfuxotx/image/upload/q_auto,f_auto/v1778688510/1778657276427_fswuhy.png','https://res.cloudinary.com/datfuxotx/image/upload/v1778688667/1778657145970_cvp8wc.jpg']
+            };
     
     const introOverlay = document.getElementById('intro-overlay');
             const mainSite = document.getElementById('main-site');
@@ -868,7 +890,7 @@ const topNav = document.getElementById('top-nav');
                 currentGalleryKey = null;
                 
                 }
-            galleryModalClose.addEventListener('click', closeGalleryModal);
+        galleryModalClose.addEventListener('click', closeGalleryModal);
             galleryModal.addEventListener('click', e => { if (e.target === galleryModal) closeGalleryModal(); });
             galleryGridContent.addEventListener('click', e => {
                 if (e.target.tagName === 'IMG') openImageFullscreen(e.target.src);
@@ -1013,6 +1035,24 @@ function requestNotify(btn) {
         }
     });
 }
+function playSmEp1(el) {
+    el.innerHTML = '<iframe style="width:100%;height:100%;border:0;" src="https://www.youtube.com/embed/sIcTXVVZh_o?autoplay=1" title="Sweet Monster Episode 1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    el.style.cursor = 'default';
+    el.onclick = null;
+}
+function shareEpisode(btn, sectionId, title) {
+    const url = 'https://reinblackscreativz.com/sweet-monster-episode-1';
+    const shareData = { title: title, text: 'Watch ' + title + ' on Reinblacks Mini Films!', url: url };
+    if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+    } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Link Copied!';
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
+        });
+    }
+}
 setTimeout(() => {
     const introBrand = document.getElementById('intro-brand');
     if(introBrand){
@@ -1027,5 +1067,4 @@ setTimeout(() => {
     </script>
 </body>
 </html>    
-
 
